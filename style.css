@@ -1,0 +1,187 @@
+p { /*Make sure p tags dont interfere with layout*/ /*home page*/
+  margin: 0;
+  padding: 0;
+}
+hr {
+  margin-top:10px;
+  padding:0;
+}
+body {
+  padding-top: 179px;
+  background-color: #F6F6F4; /*#D4E8C1*/
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.bannerSmall { /*small banner above big main banner*/
+  background-color: #474A4F;
+  height: 25px;
+}
+.about { /*about link*/
+  margin-right: 25px;
+  margin-top: 2px;
+  font-size: 80%;
+  float: right;
+  color: white;
+}
+
+.about:hover {
+  text-decoration: none;
+  color: chartreuse;
+
+}
+
+.bannerBig { /*Control second banner height*/
+  height: 100px;
+  background-color: #272727;
+  color:white;
+}
+#bigHeader { /*big Best things to get header*/
+  margin-top: 15px; /*from very top of web page*/
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 380%;
+  font-weight: bold;
+}
+
+#tagLine { /*tagline under big header*/
+  margin-top: -16px;
+  text-align: center;
+  font-size: 100%;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.nav-link { /*Menu buttons*/
+  height: 38px;
+  margin: 5px 2px -8px 1px; /*positioning of buttons inside nav bar.*/
+  border-width: 0px; /*initial border width for animation of menu items*/
+  border-top-style: solid;
+
+  padding: 7px 18px 7px 18px !important; /*make buttons bigger, need to override bootstrap*/
+  border-radius: 5px;
+}
+@media (max-width: 768px) {
+
+  .nav-link {
+    height: 50px;
+    padding: 13px 18px 7px 18px !important;
+  }
+}
+nav .navbar-nav li a {
+  color: white !important;
+}
+.menuSectionColor1 {
+  background-color: #F79E02;
+
+}
+
+.menuSectionColor2 {
+  background-color: #F79E02; /*#f9c236 #f79d3d #ff5656 #c444c0 #81ce16 #38bff4 */
+}
+
+.menuSectionColor3 {
+  background-color: #F79E02;
+
+}
+
+.menuSectionColor4 {
+  background-color: #F79E02;
+}
+
+.menuSectionColor5 {
+  background-color: #F1433F;
+}
+
+.collapseBanner {  /*banner that shoes when scrolling*/
+  background-color: #272727;
+  height: 32px;
+  text-align:center;
+  font-size: 150%;
+  font-weight: bold;
+  color:white;
+
+}
+.collapseHeader { /*this is the collapse banner text at small widths*/
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 140%;
+  font-family: 'Roboto Condensed', sans-serif;
+  color:white;
+}
+
+@media (max-width: 768px){ /*for drop down menu bottons*/
+
+  .nav-link {
+    margin-top: 15px;
+
+  }
+  .menuSectionColor7 {
+    background-color: black;
+    margin-bottom: 10px;
+  }
+
+}
+
+@media (min-width: 768px) {
+
+  .aboutNav {
+    display: none;
+  }
+}
+
+#aboutBanner {
+
+  background-color: #D4E8C1;
+  height: 85px;
+  width: 100%;
+  margin-top: 50px;
+  font-size: 3em;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: -30px;
+}
+
+#aboutHeader {
+
+  margin-top: 40px;
+  font-weight:600;
+
+
+}
+
+.aboutText {
+  margin-top: 15px;
+
+}
+
+.container-fluid {
+
+  margin:0;
+  padding:0;
+
+}
+
+@media (max-width: 768px) { /*at smaller screen first card margin changes to be closer to top*/
+  #aboutBanner {
+    margin-top: -123px;
+  }
+}
+
+.row {
+  margin-top: 40px;
+
+}
+
+.roboFont {
+  font-family: 'Roboto', sans-serif;
+}
+.bottomBanner.container-fluid{
+  background: black;
+  height: 100px;
+}
+.txtr{
+  margin-top: 40px;
+  color: white;
+}
+.alphaBtnMargin{
+  margin-top:2px;
+}
