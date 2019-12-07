@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,900" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+    <?php include("readData.php"); ?>
 </head>
 <html lang="en">
 <body>
@@ -46,19 +47,19 @@
       <!-- name id if want to collapse-->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link  menuSectionColor1" href="index.html">MAIN MENU</a>
+          <a class="nav-link  menuSectionColor1" href="index.php">MAIN MENU</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor2" href="singleplayer.html">SINGLE PLAYER</a>
+          <a class="nav-link menuSectionColor2" href="singleplayer.php">SINGLE PLAYER</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor3" href="multiplayer.html">MULTIPLAYER</a>
+          <a class="nav-link menuSectionColor3" href="multiplayer.php">MULTIPLAYER</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor4" href="uploadchallenge.html">UPLOAD CHALLENGE</a>
+          <a class="nav-link menuSectionColor4" href="uploadchallenge.php">UPLOAD CHALLENGE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor5" href="reportbug.html">REPORT BUG</a>
+          <a class="nav-link menuSectionColor5" href="reportbug.php">REPORT BUG</a>
         </li>
         <li class="nav-item">
           <a class="aboutNav nav-link menuSectionColor7" href="">About us</a>
@@ -77,36 +78,42 @@
       <h1 id="aboutHeader">Single Player</h1>
       <form>
         <br/>
+        <button onclick = "initWord(this.id)" id="playSingle" type="button" class="btn btn-primary">Play</button>
         <br/>
-        <div class="form-group">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+        <br/>
+        <div>
+          <div><img id= "hangImages" style="height:300px; width: 300px;" src="images\h0.png" alt="first"></div>
+          <br/>
+          <div type="text" id="exampleFormControlTextarea1"></div>
+          <div type="text" id="exampleFormControlTextarea2"></div>
+          <br/>
         </div>
-        <button type="button" class="btn btn-primary alphaBtnMargin">A</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">B</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">C</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">D</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">E</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">F</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">G</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">H</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">I</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">J</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">K</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">L</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">M</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">N</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">O</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">P</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">Q</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">R</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">S</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">T</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">U</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">V</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">W</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">X</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">Y</button>
-        <button type="button" class="btn btn-primary alphaBtnMargin">Z</button>
+        <button onclick="gameLoop(this.id)" id = "bA" type="button" class="btn btn-primary alphaBtnMargin">A</button>
+        <button onclick="gameLoop(this.id)" id = "bB" type="button" class="btn btn-primary alphaBtnMargin">B</button>
+        <button onclick="gameLoop(this.id)" id = "bC" type="button" class="btn btn-primary alphaBtnMargin">C</button>
+        <button onclick="gameLoop(this.id)" id = "bD" type="button" class="btn btn-primary alphaBtnMargin">D</button>
+        <button onclick="gameLoop(this.id)" id = "bE" type="button" class="btn btn-primary alphaBtnMargin">E</button>
+        <button onclick="gameLoop(this.id)" id = "bF" type="button" class="btn btn-primary alphaBtnMargin">F</button>
+        <button onclick="gameLoop(this.id)" id = "bG" type="button" class="btn btn-primary alphaBtnMargin">G</button>
+        <button onclick="gameLoop(this.id)" id = "bH" type="button" class="btn btn-primary alphaBtnMargin">H</button>
+        <button onclick="gameLoop(this.id)" id = "bI" type="button" class="btn btn-primary alphaBtnMargin">I</button>
+        <button onclick="gameLoop(this.id)" id = "bJ" type="button" class="btn btn-primary alphaBtnMargin">J</button>
+        <button onclick="gameLoop(this.id)" id = "bK" type="button" class="btn btn-primary alphaBtnMargin">K</button>
+        <button onclick="gameLoop(this.id)" id = "bL" type="button" class="btn btn-primary alphaBtnMargin">L</button>
+        <button onclick="gameLoop(this.id)" id = "bM" type="button" class="btn btn-primary alphaBtnMargin">M</button>
+        <button onclick="gameLoop(this.id)" id = "bN" type="button" class="btn btn-primary alphaBtnMargin">N</button>
+        <button onclick="gameLoop(this.id)" id = "bO" type="button" class="btn btn-primary alphaBtnMargin">O</button>
+        <button onclick="gameLoop(this.id)" id = "bP" type="button" class="btn btn-primary alphaBtnMargin">P</button>
+        <button onclick="gameLoop(this.id)" id = "bQ" type="button" class="btn btn-primary alphaBtnMargin">Q</button>
+        <button onclick="gameLoop(this.id)" id = "bR" type="button" class="btn btn-primary alphaBtnMargin">R</button>
+        <button onclick="gameLoop(this.id)" id = "bS" type="button" class="btn btn-primary alphaBtnMargin">S</button>
+        <button onclick="gameLoop(this.id)" id = "bT" type="button" class="btn btn-primary alphaBtnMargin">T</button>
+        <button onclick="gameLoop(this.id)" id = "bU" type="button" class="btn btn-primary alphaBtnMargin">U</button>
+        <button onclick="gameLoop(this.id)" id = "bV" type="button" class="btn btn-primary alphaBtnMargin">V</button>
+        <button onclick="gameLoop(this.id)" id = "bW" type="button" class="btn btn-primary alphaBtnMargin">W</button>
+        <button onclick="gameLoop(this.id)" id = "bX" type="button" class="btn btn-primary alphaBtnMargin">X</button>
+        <button onclick="gameLoop(this.id)" id = "bY" type="button" class="btn btn-primary alphaBtnMargin">Y</button>
+        <button onclick="gameLoop(this.id)" id = "bZ" type="button" class="btn btn-primary alphaBtnMargin">Z</button>
       </form>
       <br/>
       <br/>
@@ -128,10 +135,6 @@
       <br/>
       <br/>
     </div>
-
-
-
-
   </div>
 </div>
 
@@ -144,7 +147,7 @@
 
 </div>
 <script type="text/javascript" src="jquery.min.js"></script>
-<script type="text/javascript" src="mainHangman.js"></script>
+<script type="text/javascript" src="Main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -197,6 +200,8 @@
     });
   });
 
+  let str = '<?php echo $str; ?>';
+  testphp(str);
 </script>
 
 </body>

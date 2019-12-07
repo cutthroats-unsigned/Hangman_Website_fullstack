@@ -1,10 +1,36 @@
 //this js file is where the main game function happens
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+let finalChoice;
+let line;
+let str2;
+function testphp(sat){
+  str2 = sat;
+}
+console.log(str2);
+function getRandomLine(line)
+{
+  line = line.replace(/\r/g, '');
+  let indexArray = line.split('\n');
+  for(let i = 0; i<indexArray.length; i++)
+  {
+    count++;
+  }
+  count--;
+  randNum = getRandomInt(0,count);
+  finalChoice = indexArray[randNum];
+  return finalChoice;
+}
 function PrepWord(word)
 {
-  word = word.toUpperCase();
-  word = word.replace(/ +(?= )/g,'');
+
   if(/^[a-z A-Z]+$/.test(word))
   {
+    word = word.toUpperCase();
+    word = word.replace(/ +(?= )/g,'');
     return word;
   }
   else
@@ -14,7 +40,6 @@ function PrepWord(word)
 }
 function MakeArray(word)
 {
-  word = PrepWord(word);
   if(word !== false)
   {
     word = word.split("");
@@ -25,6 +50,8 @@ function MakeArray(word)
     return false;
   }
 }
+
+
 function letterCount(word)
 {
   let num = 0;
@@ -44,7 +71,9 @@ function makeUnderscoreArray(word)
   {
     if(temp[i] != ' ')
     {
-      temp[i] = '_'
+      temp[i] = '_';
+    } else{
+      temp[i] = '\n';
     }
   }
   return temp;
@@ -55,24 +84,23 @@ function cleanWordArray(word)
   for(let i = 0; i<word.length; i++)
   {
     temp = temp.replace(',','');
+    temp = temp.replace(/\s/g, "-");
   }
   return temp;
 }
 function cleanWordString(aString){
   aString = aString.toString();
   aString = cleanWordArray(aString);
+ // aString = aString.replace(/\s/g, '');
   aString = aString.split('').join(' ');
   return aString;
-}
-function returnPrintableString(){
-
 }
 function getWord(){
   var word = prompt("Please enter your name", "<name goes here>");
   document.getElementById('exampleFormControlTextarea1').innerHTML = word;
   return word;
 }
-let strike = 6;
+let strike;
 let wordcCopy;
 let worduCopy;
 let MainWord;
@@ -80,7 +108,8 @@ let MainWord;
 // the input of the second parameter should be the character that the person guesses
 let underscoreArray;
 let count;
-let flag = false;
+let gamePlayingFlag = false;
+let gamePlayedFlag = false;
 
 function MainGame(mainWord, guessedChar)
 {
@@ -127,13 +156,26 @@ function MainGame(mainWord, guessedChar)
       console.log('you win!')
       return 1;
     }
+
+    temp= temp.replace(/\s/g, '&nbsp;');
     return temp.split('').join(' ');
   }
 }
 let v = " ";
-function initWord(){
-  flag = true;
-   MainWord = MakeArray(PrepWord(getWord()));
+function initWord(playId){
+   document.getElementById('hangImages').src = "images\\h0.png";
+   gamePlayingFlag = true;
+   gamePlayedFlag = true;
+   strike = 6;
+   if(playId === "playMulti") {
+     MainWord = MakeArray(PrepWord(getWord()));
+     console.log("multi");
+   } else if(playId === "playSingle"){
+     MainWord = MakeArray(PrepWord(getRandomLine(str2)));
+     console.log("single");
+   }else{
+     alert("oops! Something went wrong!");
+   }
    wordcCopy = MainWord.slice(0);
    worduCopy = MainWord.slice(0);
    underscoreArray = makeUnderscoreArray(worduCopy);
@@ -147,29 +189,66 @@ function initWord(){
 }
 
 function gameLoop(idOfButton){
-  if(flag) {
+  if(gamePlayingFlag) {
+
     let x = MainGame(MainWord, $('#' + idOfButton).text());
     console.log(x);
     document.getElementById('exampleFormControlTextarea1').innerHTML = v;
     if (x === false) {
       document.getElementById('exampleFormControlTextarea2').innerHTML = "Letter not in word!";
+      document.getElementById('hangImages').src = "images\\h" +(6-strike) + ".jpg";
+      $('#' + idOfButton).css("background-color", "#F1433F");
     } else
       if (x === 0) {
-        document.getElementById('exampleFormControlTextarea1').innerHTML = MainWord;
+        document.getElementById('exampleFormControlTextarea1').innerHTML = cleanWordString(MainWord);
         document.getElementById('exampleFormControlTextarea2').innerHTML = "You Lost!";
-        flag = false;
+        document.getElementById('hangImages').src = "images\\h" +(6-strike) + ".jpg";
+        $('.alphaBtnMargin').css("background-color", "#007BFF");
+        gamePlayingFlag = false;
       } else
         if (x === 1) {
           document.getElementById('exampleFormControlTextarea1').innerHTML = cleanWordString(MainWord);
           document.getElementById('exampleFormControlTextarea2').innerHTML = "You Win!";
-          flag = false;
+          document.getElementById('hangImages').src = "images\\hwin.jpg";
+          $('.alphaBtnMargin').css("background-color", "#007BFF");
+          gamePlayingFlag = false;
         } else {
-          document.getElementById('exampleFormControlTextarea2').innerHTML = "<br\>";
+          document.getElementById('exampleFormControlTextarea2').innerHTML = " ";
           document.getElementById('exampleFormControlTextarea1').innerHTML = x;
+          $('#' + idOfButton).css("background-color", "#87C232");
           v = x;
         }
   } else {
-    document.getElementById('exampleFormControlTextarea1').innerHTML = "<br/>";
-    document.getElementById('exampleFormControlTextarea2').innerHTML = "Press the Play Button to Play Again!";
+    document.getElementById('exampleFormControlTextarea1').innerHTML = " ";
+    if(gamePlayedFlag) {
+      document.getElementById('exampleFormControlTextarea2').innerHTML = "Press the Play Button to Play Again!";
+    }else{
+      document.getElementById('exampleFormControlTextarea2').innerHTML = "Press the Play Button to Play!";
+    }
   }
 }
+
+/*
+function writeToDataBase(word)
+{
+  let temp;
+  temp = fs.readFileSync('C:\\Users\\danya\\IdeaProjects\\hangman2\\dataBase.txt', 'utf8');
+  temp = temp.replace(/\r/g, '');
+  let indexArray = temp.split('\n');
+  for(let i = 0; i<indexArray.length; i++)
+  {
+    if(indexArray[i] === word)
+    {
+      console.log('word exists in dataBase!!!');
+      return;
+    }
+  }
+
+  fs.appendFile('C:\\Users\\danya\\IdeaProjects\\hangman2\\dataBase.txt', '\n'+ word, function (err) {
+    if (err) {
+      return err;
+    } else {
+      console.log('EOF now = ' + word);
+    }
+  });
+} */

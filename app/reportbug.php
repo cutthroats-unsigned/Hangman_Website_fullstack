@@ -2,7 +2,7 @@
 <head>
 
   <meta charset="UTF-8">
-  <title>Upload Challenge</title>
+  <title>Report Bug</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,900" rel="stylesheet">
@@ -46,19 +46,19 @@
       <!-- name id if want to collapse-->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link  menuSectionColor1" href="index.html">MAIN MENU</a>
+          <a class="nav-link  menuSectionColor1" href="index.php">MAIN MENU</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor2" href="singleplayer.html">SINGLE PLAYER</a>
+          <a class="nav-link menuSectionColor2" href="singleplayer.php">SINGLE PLAYER</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor3" href="multiplayer.html">MULTIPLAYER</a>
+          <a class="nav-link menuSectionColor3" href="multiplayer.php">MULTIPLAYER</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor4" href="uploadchallenge.html">UPLOAD CHALLENGE</a>
+          <a class="nav-link menuSectionColor4" href="uploadchallenge.php">UPLOAD CHALLENGE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor5" href="reportbug.html">REPORT BUG</a>
+          <a class="nav-link menuSectionColor5" href="reportbug.php">REPORT BUG</a>
         </li>
         <li class="nav-item">
           <a class="aboutNav nav-link menuSectionColor7" href="">About us</a>
@@ -74,40 +74,33 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-7 roboFont">
-      <h1 id="aboutHeader">Upload Challenge</h1>
+      <h1 id="aboutHeader">Report bug</h1>
       <br/>
       <br/>
       <form>
         <div class="form-group">
-          <label for="exampleFormControlTextarea1"> Enter a hint that will help the player guess the correct word.</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="He lives in a pineapple" rows="1"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1"> Enter a word or phrase the player needs to guess.</label>
-          <textarea class="form-control" id="exampleFormControlTextarea2" placeholder="SpongeBob SquarePants" rows="1"></textarea>
+          <label for="exampleFormControlTextarea1"> If you encountered any issues with the game, or if you have any suggestions, please let us know below.</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Enter text here..." rows="5"></textarea>
           <br/>
           <button type="button" class="btn btn-primary">SUBMIT</button>
         </div>
       </form>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
     </div>
-
-
-
-
   </div>
 </div>
 
@@ -124,8 +117,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
 <script type="text/javascript">
 
-  $(".menuSectionColor4").css("border-top-color", "#87C232");
-  $(".menuSectionColor4").css("borderWidth", "5px");
+  $(".menuSectionColor5").css("border-top-color", "#FF7572");
+  $(".menuSectionColor5").css("borderWidth", "5px");
 
   $(".nav-link").hover(function () {
     if(this.textContent === "REPORT BUG"){
@@ -134,13 +127,13 @@
     else {
       $(this).css("border-top-color", "#87C232"); //generate random color for border
     }
-    if(this.textContent !== "UPLOAD CHALLENGE"){
+    if(this.textContent !== "REPORT BUG"){
       $(this).stop().animate({ //executes this while hovering
 
         borderWidth: "5px", //increase width of border
       }, 200);}
   }, function () { //executes when done hovering
-    if(this.textContent !== "UPLOAD CHALLENGE"){
+    if(this.textContent !== "REPORT BUG"){
       $(this).stop().animate({
 
         borderWidth: "0px", //decrease width of border

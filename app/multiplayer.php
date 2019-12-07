@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,900" rel="stylesheet">
+  <?php include("readData.php"); ?>
   <link rel="stylesheet" href="style.css">
 </head>
 <html lang="en">
@@ -46,19 +47,19 @@
       <!-- name id if want to collapse-->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link  menuSectionColor1" href="index.html">MAIN MENU</a>
+          <a class="nav-link  menuSectionColor1" href="index.php">MAIN MENU</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor2" href="singleplayer.html">SINGLE PLAYER</a>
+          <a class="nav-link menuSectionColor2" href="singleplayer.php">SINGLE PLAYER</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor3" href="multiplayer.html">MULTIPLAYER</a>
+          <a class="nav-link menuSectionColor3" href="multiplayer.php">MULTIPLAYER</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor4" href="uploadchallenge.html">UPLOAD CHALLENGE</a>
+          <a class="nav-link menuSectionColor4" href="uploadchallenge.php">UPLOAD CHALLENGE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor5" href="reportbug.html">REPORT BUG</a>
+          <a class="nav-link menuSectionColor5" href="reportbug.php">REPORT BUG</a>
         </li>
         <li class="nav-item">
           <a class="aboutNav nav-link menuSectionColor7" href="">About us</a>
@@ -77,12 +78,15 @@
       <h1 id="aboutHeader">Multiplayer</h1>
       <form>
         <br/>
-        <button onclick = "initWord()" type="button" class="btn btn-primary alphaBtnMargin">Play</button>
+        <button onclick = "initWord(this.id)" id="playMulti" type="button" class="btn btn-primary">Play</button>
         <br/>
         <br/>
         <div>
+          <div><img id= "hangImages" style="height:300px; width: 300px;" src="images\h0.png" alt="first"></div>
+        <br/>
           <div type="text" id="exampleFormControlTextarea1"></div>
           <div type="text" id="exampleFormControlTextarea2"></div>
+          <br/>
         </div>
         <button onclick="gameLoop(this.id)" id = "bA" type="button" class="btn btn-primary alphaBtnMargin">A</button>
         <button onclick="gameLoop(this.id)" id = "bB" type="button" class="btn btn-primary alphaBtnMargin">B</button>
@@ -110,7 +114,6 @@
         <button onclick="gameLoop(this.id)" id = "bX" type="button" class="btn btn-primary alphaBtnMargin">X</button>
         <button onclick="gameLoop(this.id)" id = "bY" type="button" class="btn btn-primary alphaBtnMargin">Y</button>
         <button onclick="gameLoop(this.id)" id = "bZ" type="button" class="btn btn-primary alphaBtnMargin">Z</button>
-
       </form>
       <br/>
       <br/>
@@ -144,7 +147,10 @@
 
 </div>
 <script type="text/javascript" src="jquery.min.js"></script>
+<!---<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
 <script type="text/javascript" src="Main.js"></script>
+<script type=”application/php” src=”readData.php”></script>
+<!--<script type="text/javascript" src="readData.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -196,6 +202,8 @@
       }
     });
   });
+
+  readFromFile()
 
 </script>
 

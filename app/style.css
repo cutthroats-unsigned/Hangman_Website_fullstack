@@ -184,4 +184,19 @@ nav .navbar-nav li a {
 }
 .alphaBtnMargin{
   margin-top:2px;
+  width: 40px;
+  border: none;
+  color:white;
+}
+#exampleFormControlTextarea1{
+  height: 20px;
+}
+#exampleFormControlTextarea2{
+  height: 20px;
+}
+.btn:focus {
+  outline: none !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }

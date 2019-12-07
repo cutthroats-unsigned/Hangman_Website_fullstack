@@ -46,19 +46,19 @@
       <!-- name id if want to collapse-->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link  menuSectionColor1" href="index.html">MAIN MENU</a>
+          <a class="nav-link  menuSectionColor1" href="index.php">MAIN MENU</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor2" href="singleplayer.html">SINGLE PLAYER</a>
+          <a class="nav-link menuSectionColor2" href="singleplayer.php">SINGLE PLAYER</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor3" href="multiplayer.html">MULTIPLAYER</a>
+          <a class="nav-link menuSectionColor3" href="multiplayer.php">MULTIPLAYER</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor4" href="uploadchallenge.html">UPLOAD CHALLENGE</a>
+          <a class="nav-link menuSectionColor4" href="uploadchallenge.php">UPLOAD CHALLENGE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link menuSectionColor5" href="reportbug.html">REPORT BUG</a>
+          <a class="nav-link menuSectionColor5" href="reportbug.php">REPORT BUG</a>
         </li>
         <li class="nav-item">
           <a class="aboutNav nav-link menuSectionColor7" href="">About us</a>
