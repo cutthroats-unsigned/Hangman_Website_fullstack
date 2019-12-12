@@ -1,4 +1,28 @@
 //this js file is where the main game function happens
+let maindata = [
+  {
+    "index":1,
+    "word":"bob",
+    "hint":"common name",
+  }
+  ,
+  {
+    "index":2,
+    "word":"hello",
+    "hint":"common name",
+  }
+  , {
+    "index":3,
+    "word":"program",
+    "hint":"common name",
+  }
+  , {
+    "index":4,
+    "word":"ice cream",
+    "hint":"common name",
+  }
+]
+let mainytest=["ice cream","hello world","testing","i love programming","winter break"];
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -7,10 +31,7 @@ function getRandomInt(min, max) {
 let finalChoice;
 let line;
 let str2;
-function testphp(sat){
-  str2 = sat;
-}
-console.log(str2);
+
 function getRandomLine(line)
 {
   line = line.replace(/\r/g, '');
@@ -171,7 +192,7 @@ function initWord(playId){
      MainWord = MakeArray(PrepWord(getWord()));
      console.log("multi");
    } else if(playId === "playSingle"){
-     MainWord = MakeArray(PrepWord(getRandomLine(str2)));
+     MainWord = MakeArray(PrepWord(mainytest[getRandomInt(0,mainytest.length-1)]));
      console.log("single");
    }else{
      alert("oops! Something went wrong!");
@@ -227,11 +248,12 @@ function gameLoop(idOfButton){
     }
   }
 }
-
+//console.log(maindata.length);
+console.log(mainytest[getRandomInt(0,mainytest.length-1)]);
 /*
 function writeToDataBase(word)
 {
-  let temp;
+  let temp;{"index": 20, "word": 'jess', "hint":'its a name'}
   temp = fs.readFileSync('C:\\Users\\danya\\IdeaProjects\\hangman2\\dataBase.txt', 'utf8');
   temp = temp.replace(/\r/g, '');
   let indexArray = temp.split('\n');
