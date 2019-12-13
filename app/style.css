@@ -15,26 +15,13 @@ body {
   background-color: #474A4F;
   height: 25px;
 }
-.about { /*about link*/
-  margin-right: 25px;
-  margin-top: 2px;
-  font-size: 80%;
-  float: right;
-  color: white;
-}
-
-.about:hover {
-  text-decoration: none;
-  color: chartreuse;
-
-}
 
 .bannerBig { /*Control second banner height*/
   height: 100px;
   background-color: #272727;
   color:white;
 }
-#bigHeader { /*big Best things to get header*/
+#bigHeader { /*big header*/
   margin-top: 15px; /*from very top of web page*/
   margin-bottom: 5px;
   text-align: center;
@@ -55,7 +42,6 @@ body {
   margin: 5px 2px -8px 1px; /*positioning of buttons inside nav bar.*/
   border-width: 0px; /*initial border width for animation of menu items*/
   border-top-style: solid;
-
   padding: 7px 18px 7px 18px !important; /*make buttons bigger, need to override bootstrap*/
   border-radius: 5px;
 }
@@ -69,25 +55,24 @@ body {
 nav .navbar-nav li a {
   color: white !important;
 }
-.menuSectionColor1 {
+#menuSectionColor1 {
   background-color: #F79E02;
 
 }
-
-.menuSectionColor2 {
+#menuSectionColor2 {
   background-color: #F79E02; /*#f9c236 #f79d3d #ff5656 #c444c0 #81ce16 #38bff4 */
 }
 
-.menuSectionColor3 {
+#menuSectionColor3 {
   background-color: #F79E02;
 
 }
 
-.menuSectionColor4 {
+#menuSectionColor4 {
   background-color: #F79E02;
 }
 
-.menuSectionColor5 {
+#menuSectionColor5 {
   background-color: #F1433F;
 }
 
@@ -121,34 +106,13 @@ nav .navbar-nav li a {
 
 }
 
-@media (min-width: 768px) {
-
-  .aboutNav {
-    display: none;
-  }
-}
-
-#aboutBanner {
-
-  background-color: #D4E8C1;
-  height: 85px;
-  width: 100%;
-  margin-top: 50px;
-  font-size: 3em;
-  text-align: center;
-  padding-top: 10px;
-  margin-bottom: -30px;
-}
-
-#aboutHeader {
+#bodyHeader {
 
   margin-top: 40px;
   font-weight:600;
-
-
 }
 
-.aboutText {
+.bodyText {
   margin-top: 15px;
 
 }
@@ -160,12 +124,6 @@ nav .navbar-nav li a {
 
 }
 
-@media (max-width: 768px) { /*at smaller screen first card margin changes to be closer to top*/
-  #aboutBanner {
-    margin-top: -123px;
-  }
-}
-
 .row {
   margin-top: 40px;
 
@@ -174,11 +132,12 @@ nav .navbar-nav li a {
 .roboFont {
   font-family: 'Roboto', sans-serif;
 }
-.bottomBanner.container-fluid{
+.bottomBanner{
+  margin-top:200px;
   background: black;
   height: 100px;
 }
-.txtr{
+.bottomBannerTxt{
   margin-top: 40px;
   color: white;
 }
@@ -188,15 +147,26 @@ nav .navbar-nav li a {
   border: none;
   color:white;
 }
-#exampleFormControlTextarea1{
+#textarea1{
+  margin-top: -5px;
   height: 20px;
+  margin-left: 20%;
 }
-#exampleFormControlTextarea2{
+#textarea2{
   height: 20px;
+  margin-left: 20%;
+  margin-bottom: 5px;
 }
 .btn:focus {
   outline: none !important;
   border: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
+}
+#hangImages{
+  margin-left: 20%;
+}
+#playerHint{
+  margin-left: 20%;
+  height:20px;
 }

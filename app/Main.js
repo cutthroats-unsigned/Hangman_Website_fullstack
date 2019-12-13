@@ -22,6 +22,19 @@ let maindata = [
     "hint":"common name",
   }
 ]
+let hint=["goodness","basics","cmon","u hate it","finally"];
+function pushToArray(word,h)
+{
+  if(!PrepWord(word))
+  {
+    console.log("word must be proper format");
+    return false;
+  }
+  mainytest.push(word);
+  hint.push(h);
+  console.log(mainytest);
+  console.log(hint);
+}
 let mainytest=["ice cream","hello world","testing","i love programming","winter break"];
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -31,7 +44,6 @@ function getRandomInt(min, max) {
 let finalChoice;
 let line;
 let str2;
-
 function getRandomLine(line)
 {
   line = line.replace(/\r/g, '');
@@ -112,13 +124,13 @@ function cleanWordArray(word)
 function cleanWordString(aString){
   aString = aString.toString();
   aString = cleanWordArray(aString);
- // aString = aString.replace(/\s/g, '');
   aString = aString.split('').join(' ');
   return aString;
 }
 function getWord(){
-  var word = prompt("Please enter your name", "<name goes here>");
-  document.getElementById('exampleFormControlTextarea1').innerHTML = word;
+  var hint = prompt("Please enter the hint", "<hint goes here>");
+  document.getElementById("playerHint").innerHTML = "Hint: " + hint;
+  var word = prompt("Please enter the word", "<word goes here>");
   return word;
 }
 let strike;
@@ -184,29 +196,39 @@ function MainGame(mainWord, guessedChar)
 }
 let v = " ";
 function initWord(playId){
-   document.getElementById('hangImages').src = "images\\h0.png";
-   gamePlayingFlag = true;
-   gamePlayedFlag = true;
-   strike = 6;
-   if(playId === "playMulti") {
-     MainWord = MakeArray(PrepWord(getWord()));
-     console.log("multi");
-   } else if(playId === "playSingle"){
-     MainWord = MakeArray(PrepWord(mainytest[getRandomInt(0,mainytest.length-1)]));
-     console.log("single");
-   }else{
-     alert("oops! Something went wrong!");
-   }
-   wordcCopy = MainWord.slice(0);
-   worduCopy = MainWord.slice(0);
-   underscoreArray = makeUnderscoreArray(worduCopy);
-   count = letterCount(wordcCopy);
-  let  printVar = underscoreArray.slice(0);
-   printVar = cleanWordString(printVar);
-   v = printVar;
-  document.getElementById('exampleFormControlTextarea1').innerHTML = printVar;
-  document.getElementById('exampleFormControlTextarea2').innerHTML = "<br/>";
-
+  if(!gamePlayingFlag) {
+    document.getElementById('hangImages').src = "images\\h0.png";
+    gamePlayingFlag = true;
+    gamePlayedFlag = true;
+    strike = 6;
+    if (playId === "playMulti") {
+      MainWord = MakeArray(PrepWord(getWord()));
+      console.log("multi");
+    } else
+      if (playId === "playSingle") {
+        let rannum = getRandomInt(0, mainytest.length - 1);
+        document.getElementById("playerHint").innerHTML = "Hint: " + hint[rannum];
+        MainWord = MakeArray(PrepWord(mainytest[rannum]));
+        console.log("single");
+      } else {
+        alert("oops! Something went wrong!");
+      }
+    if (MainWord !== false) {
+      wordcCopy = MainWord.slice(0);
+      worduCopy = MainWord.slice(0);
+      underscoreArray = makeUnderscoreArray(worduCopy);
+      count = letterCount(wordcCopy);
+      let printVar = underscoreArray.slice(0);
+      printVar = cleanWordString(printVar);
+      v = printVar;
+      document.getElementById('textarea1').innerHTML = printVar;
+      document.getElementById('textarea2').innerHTML = "<br/>";
+    } else {
+      gamePlayingFlag = false;
+      document.getElementById('textarea2').innerHTML = "Invalid input, letters only";
+      document.getElementById('textarea1').innerHTML = "";
+    }
+  }
 }
 
 function gameLoop(idOfButton){
@@ -214,63 +236,41 @@ function gameLoop(idOfButton){
 
     let x = MainGame(MainWord, $('#' + idOfButton).text());
     console.log(x);
-    document.getElementById('exampleFormControlTextarea1').innerHTML = v;
+    document.getElementById('textarea1').innerHTML = v;
     if (x === false) {
-      document.getElementById('exampleFormControlTextarea2').innerHTML = "Letter not in word!";
+      document.getElementById('textarea2').innerHTML = "Letter not in word!";
       document.getElementById('hangImages').src = "images\\h" +(6-strike) + ".jpg";
       $('#' + idOfButton).css("background-color", "#F1433F");
+      document.getElementById(idOfButton).disabled = true;
     } else
       if (x === 0) {
-        document.getElementById('exampleFormControlTextarea1').innerHTML = cleanWordString(MainWord);
-        document.getElementById('exampleFormControlTextarea2').innerHTML = "You Lost!";
+        document.getElementById('textarea1').innerHTML = cleanWordString(MainWord);
+        document.getElementById('textarea2').innerHTML = "You Lost!";
         document.getElementById('hangImages').src = "images\\h" +(6-strike) + ".jpg";
+        $(':button').prop('disabled', false);
         $('.alphaBtnMargin').css("background-color", "#007BFF");
         gamePlayingFlag = false;
       } else
         if (x === 1) {
-          document.getElementById('exampleFormControlTextarea1').innerHTML = cleanWordString(MainWord);
-          document.getElementById('exampleFormControlTextarea2').innerHTML = "You Win!";
+          document.getElementById('textarea1').innerHTML = cleanWordString(MainWord);
+          document.getElementById('textarea2').innerHTML = "You Win!";
           document.getElementById('hangImages').src = "images\\hwin.jpg";
+          $(':button').prop('disabled', false);
           $('.alphaBtnMargin').css("background-color", "#007BFF");
           gamePlayingFlag = false;
         } else {
-          document.getElementById('exampleFormControlTextarea2').innerHTML = " ";
-          document.getElementById('exampleFormControlTextarea1').innerHTML = x;
+          document.getElementById('textarea2').innerHTML = " ";
+          document.getElementById('textarea1').innerHTML = x;
           $('#' + idOfButton).css("background-color", "#87C232");
+          document.getElementById(idOfButton).disabled = true;
           v = x;
         }
   } else {
-    document.getElementById('exampleFormControlTextarea1').innerHTML = " ";
+    document.getElementById('textarea1').innerHTML = " ";
     if(gamePlayedFlag) {
-      document.getElementById('exampleFormControlTextarea2').innerHTML = "Press the Play Button to Play Again!";
+      document.getElementById('textarea2').innerHTML = "Press the Play Button to Play Again!";
     }else{
-      document.getElementById('exampleFormControlTextarea2').innerHTML = "Press the Play Button to Play!";
+      document.getElementById('textarea2').innerHTML = "Press the Play Button to Play!";
     }
   }
 }
-//console.log(maindata.length);
-console.log(mainytest[getRandomInt(0,mainytest.length-1)]);
-/*
-function writeToDataBase(word)
-{
-  let temp;{"index": 20, "word": 'jess', "hint":'its a name'}
-  temp = fs.readFileSync('C:\\Users\\danya\\IdeaProjects\\hangman2\\dataBase.txt', 'utf8');
-  temp = temp.replace(/\r/g, '');
-  let indexArray = temp.split('\n');
-  for(let i = 0; i<indexArray.length; i++)
-  {
-    if(indexArray[i] === word)
-    {
-      console.log('word exists in dataBase!!!');
-      return;
-    }
-  }
-
-  fs.appendFile('C:\\Users\\danya\\IdeaProjects\\hangman2\\dataBase.txt', '\n'+ word, function (err) {
-    if (err) {
-      return err;
-    } else {
-      console.log('EOF now = ' + word);
-    }
-  });
-} */
