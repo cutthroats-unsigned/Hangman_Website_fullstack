@@ -195,7 +195,7 @@ function MainGame(mainWord, guessedChar)
   }
 }
 let v = " ";
-function initWord(playId){
+function initWord(playId, word){
   if(!gamePlayingFlag) {
     document.getElementById('hangImages').src = "images\\h0.png";
     gamePlayingFlag = true;
@@ -206,9 +206,8 @@ function initWord(playId){
       console.log("multi");
     } else
       if (playId === "playSingle") {
-        let rannum = getRandomInt(0, mainytest.length - 1);
         document.getElementById("playerHint").innerHTML = "Hint: " + hint[rannum];
-        MainWord = MakeArray(PrepWord(mainytest[rannum]));
+        MainWord = MakeArray(PrepWord(word));
         console.log("single");
       } else {
         alert("oops! Something went wrong!");
