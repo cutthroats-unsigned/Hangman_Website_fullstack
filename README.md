@@ -12,4 +12,4 @@ David Barko
 Daniel Yarmolenko
 
 Current status of the project:
-Design Phase
+Completed Phase (v1)
