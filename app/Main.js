@@ -1,28 +1,4 @@
 //this js file is where the main game function happens
-let maindata = [
-  {
-    "index":1,
-    "word":"bob",
-    "hint":"common name",
-  }
-  ,
-  {
-    "index":2,
-    "word":"hello",
-    "hint":"common name",
-  }
-  , {
-    "index":3,
-    "word":"program",
-    "hint":"common name",
-  }
-  , {
-    "index":4,
-    "word":"ice cream",
-    "hint":"common name",
-  }
-]
-let hint=["goodness","basics","cmon","u hate it","finally"];
 function pushToArray(word,h)
 {
   if(!PrepWord(word))
@@ -195,7 +171,8 @@ function MainGame(mainWord, guessedChar)
   }
 }
 let v = " ";
-function initWord(playId, word){
+let singleFlag = 0;
+function initWord(playId, word, hint){
   if(!gamePlayingFlag) {
     document.getElementById('hangImages').src = "images\\h0.png";
     gamePlayingFlag = true;
@@ -206,7 +183,8 @@ function initWord(playId, word){
       console.log("multi");
     } else
       if (playId === "playSingle") {
-        document.getElementById("playerHint").innerHTML = "Hint: " + hint[rannum];
+        singleFlag = 1;
+        document.getElementById("playerHint").innerHTML = "Hint: " + hint;
         MainWord = MakeArray(PrepWord(word));
         console.log("single");
       } else {
@@ -232,7 +210,6 @@ function initWord(playId, word){
 
 function gameLoop(idOfButton){
   if(gamePlayingFlag) {
-
     let x = MainGame(MainWord, $('#' + idOfButton).text());
     console.log(x);
     document.getElementById('textarea1').innerHTML = v;
@@ -249,6 +226,10 @@ function gameLoop(idOfButton){
         $(':button').prop('disabled', false);
         $('.alphaBtnMargin').css("background-color", "#007BFF");
         gamePlayingFlag = false;
+        if(singleFlag == 1){
+          alert("Please Refresh the page to Play again");
+          singleFlag = 0;
+        }
       } else
         if (x === 1) {
           document.getElementById('textarea1').innerHTML = cleanWordString(MainWord);
@@ -257,6 +238,10 @@ function gameLoop(idOfButton){
           $(':button').prop('disabled', false);
           $('.alphaBtnMargin').css("background-color", "#007BFF");
           gamePlayingFlag = false;
+          if(singleFlag == 1){
+            alert("Please Refresh the page to Play again");
+            singleFlag = 0;
+          }
         } else {
           document.getElementById('textarea2').innerHTML = " ";
           document.getElementById('textarea1').innerHTML = x;

@@ -16,6 +16,9 @@
   function menuBorder(menuType){
     menuSection = menuType;
     $(menuType).css("border-top-color", "#87C232");
+    if(menuType == "#menuSectionColor5"){
+      $(menuType).css("border-top-color", "#FF7572");
+    }
     $(menuType).css("borderWidth", "5px");
   }
 
